@@ -3,7 +3,7 @@
 
 import uuid
 from datetime import datetime
-# from models import storage
+from models import storage
 
 class BaseModel:
   """BaseModel Parent Class"""
@@ -23,7 +23,7 @@ class BaseModel:
       self.id = str(uuid.uuid4())
       self.created_at = datetime.now()
       self.updated_at = datetime.now()
-      # storage.new()
+      storage.new()
 
   def __str__(self):
     """Method to return the string representation of the BaseModel class"""
@@ -34,7 +34,7 @@ class BaseModel:
     """Method to update the public instance attribute updated_at with the current datetime"""
 
     self.updated_at = datetime.now()
-    # storage.save()
+    storage.save()
 
   def to_dict(self):
     """Method to return a dictionary containing all keys/values of __dict__ of the instance"""
