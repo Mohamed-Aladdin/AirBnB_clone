@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"Entry point of the command line interpreter module"
+"""Entry point of the command line interpreter module"""
 
 import cmd
 import json
@@ -12,6 +12,30 @@ class HBNBCommand(cmd.Cmd):
   """HBNBCommand class that inherits from Cmd parent class"""
   
   prompt = "(hbnb) "
+
+  def default(self, line):
+    if not re.search("\.(\w+)\(", line):
+      return
+    obj_name = line.split(".")[0]
+    cmnd = line.split(".")[1].split("(")[0]
+    arg = line.split("(")[1][:-1]
+
+    if obj_name == "":
+      print("** class name missing **")
+      return
+    elif obj_name not in storage.classes():
+      print("** class doesn't exist **")
+      return
+    
+    if cmnd == "all":
+      self.do_all(obj_name)
+    elif cmnd == "count":
+      count = sum(1 for key, value in storage.all().items() if value.to_dict()["__class__"] == obj_name)
+      print(count)
+    elif cmnd == "show":
+      self.do_show(obj_name + " " + arg.strip("\""))
+    elif cmnd == "destroy":
+      self.do_destroy(obj_name + " " + arg.strip("\""))
 
   def do_EOF(self, line):
     """EOF character to exit the program.\n"""
