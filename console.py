@@ -36,6 +36,40 @@ class HBNBCommand(cmd.Cmd):
       self.do_show(obj_name + " " + arg.strip("\""))
     elif cmnd == "destroy":
       self.do_destroy(obj_name + " " + arg.strip("\""))
+    elif cmnd == "update":
+      if re.match('"[^"]+", {.+}', arg):
+        arg = arg.replace("\'", "\"")
+        arg_dict = json.loads(arg.split(", ", 1)[1])
+        arg_id = obj_name + "." + arg.split(", ")[0].strip("\"")
+
+        if arg_id not in storage.all().keys():
+          print("** no instance found **")
+          return
+        for key, value in arg_dict.items():
+          setattr(storage.all()[arg_id], key, value)
+      else:
+        args = arg.split(", ")
+
+        if args == [""]:
+          print("** instance id missing **")
+          return
+        key = "{}.{}".format(obj_name, args[0].strip("\""))
+
+        if key not in storage.all().keys():
+          print("** no instance found **")
+          return
+        else:
+          if len(args) < 2:
+            print("** attribute name missing **")
+            return
+          elif len(args) < 3:
+            print("** value missing **")
+            return
+          else:
+            self.do_update(obj_name + " " + args[0].strip("\"") + " " +
+                           args[1].strip("\"") + " " + args[2])
+    else:
+      super().default(line)
 
   def do_EOF(self, line):
     """EOF character to exit the program.\n"""
