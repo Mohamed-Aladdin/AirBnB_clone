@@ -19,17 +19,8 @@ class TestBaseModel(unittest.TestCase):
 
   def tearDown(self):
     """Method to tear down the current environment"""
-
-    self.resetStorage()
+    
     pass
-
-  def resetStorage(self):
-    """Method to reset the current state of the storage"""
-
-    FileStorage._FileStorage.__objects = {}
-
-    if os.path.isfile(FileStorage._FileStorage.__file_path):
-      os.remove(FileStorage._FileStorage.__file_path)
   
   def test_init(self):
     """Method to test no kwargs init of the class"""
