@@ -5,7 +5,6 @@ import unittest
 from datetime import datetime
 from models.base_model import BaseModel
 from models.amenity import Amenity
-from models.engine.file_storage import FileStorage
 
 import unittest
 
