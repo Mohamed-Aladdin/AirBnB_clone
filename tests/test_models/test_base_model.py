@@ -24,8 +24,8 @@ class TestBaseModel(unittest.TestCase):
 
     obj = BaseModel()
     self.assertIsInstance(obj.id, str)
-    self.assertEqual(obj.created_at, datetime)
-    self.assertEqual(obj.updated_at, datetime)
+    self.assertIsInstance(obj.created_at, datetime)
+    self.assertIsInstance(obj.updated_at, datetime)
 
   def test_init_kwargs(self):
     """Method to test init with kwargs"""
