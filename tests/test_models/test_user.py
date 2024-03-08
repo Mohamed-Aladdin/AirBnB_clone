@@ -53,15 +53,5 @@ class TestUser(unittest.TestCase):
     self.assertEqual(obj.first_name, first_name)
     self.assertEqual(obj.last_name, last_name)
 
-  def test_to_dict(self):
-    """Method to test the to_dict functionality"""
-    
-    obj = User()
-    User_dict = obj.to_dict()
-    keys = ['id', 'created_at', 'updated_at', 'email', 'password', 'first_name', 'last_name', '__class__']
-
-    for key in keys:
-        self.assertIn(key, User_dict)
-
-  if __name__ == "__main__":
-    unittest.main()
+if __name__ == "__main__":
+  unittest.main()

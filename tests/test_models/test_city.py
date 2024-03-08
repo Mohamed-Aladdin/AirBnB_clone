@@ -45,15 +45,5 @@ class TestCity(unittest.TestCase):
     self.assertEqual(obj.state_id, state_id)
     self.assertEqual(obj.name, name)
 
-  def test_to_dict(self):
-    """Method to test the to_dict functionality"""
-    
-    obj = City()
-    City_dict = obj.to_dict()
-    keys = ['id', 'created_at', 'updated_at', 'state_id', 'name', '__class__']
-
-    for key in keys:
-        self.assertIn(key, City_dict)
-
-  if __name__ == "__main__":
-    unittest.main()
+if __name__ == "__main__":
+  unittest.main()

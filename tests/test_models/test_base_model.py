@@ -58,5 +58,5 @@ class TestBaseModel(unittest.TestCase):
     for key in keys:
       self.assertIn(key, obj_dict)
 
-  if __name__ == '__main__':
-    unittest.main()
+if __name__ == '__main__':
+  unittest.main()

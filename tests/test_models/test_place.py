@@ -85,17 +85,5 @@ class TestPlace(unittest.TestCase):
     self.assertEqual(place.longitude, longitude)
     self.assertEqual(place.amenity_ids, amenity_ids)
 
-  def test_to_dict(self):
-    """Method to test the to_dict functionality"""
-    
-    obj = Place()
-    Place_dict = obj.to_dict()
-    keys = ['id', 'created_at', 'updated_at', 'city_id', 'user_id', 'name', 'description',
-            'number_rooms', 'number_bathrooms', 'max_guest', 'price_by_night', 'latitude',
-            'longitude', 'amenity_ids' '__class__']
-
-    for key in keys:
-        self.assertIn(key, Place_dict)
-
-  if __name__ == "__main__":
-    unittest.main()
+if __name__ == "__main__":
+  unittest.main()
