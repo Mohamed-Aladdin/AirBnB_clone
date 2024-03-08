@@ -2,10 +2,8 @@
 """BaseModel Class Unit Tests Module"""
 
 import unittest
-import os
 import time
 from datetime import datetime
-from models import storage
 from models.base_model import BaseModel
 from models.engine.file_storage import FileStorage
 
