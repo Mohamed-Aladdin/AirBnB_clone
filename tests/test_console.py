@@ -4,17 +4,17 @@
 import unittest
 
 class TestConsole(unittest.TestCase):
-  """TestConsole Class"""
+	"""TestConsole Class"""
 
-  def setUp(self):
-    """Method to setup test cases"""
+	def setUp(self):
+		"""Method to setup test cases"""
 
-    pass
+		pass
 
-  def tearDown(self):
-    """Method to tear down the current environment"""
-    
-    pass
+	def tearDown(self):
+		"""Method to tear down the current environment"""
+		
+		pass
 
 if __name__ == '__main__':
-  unittest.main()
+	unittest.main()
