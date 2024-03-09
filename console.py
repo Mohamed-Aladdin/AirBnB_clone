@@ -11,7 +11,7 @@ from models import storage
 
 class HBNBCommand(cmd.Cmd):
     """HBNBCommand class that inherits from Cmd parent class"""
-    
+
     prompt = "(hbnb) "
 
     def default(self, line):
@@ -27,7 +27,7 @@ class HBNBCommand(cmd.Cmd):
         elif obj_name not in storage.classes():
             print("** class doesn't exist **")
             return
-        
+
         if cmnd == "all":
             self.do_all(obj_name)
         elif cmnd == "count":
@@ -68,8 +68,9 @@ class HBNBCommand(cmd.Cmd):
                         print("** value missing **")
                         return
                     else:
-                        self.do_update(obj_name + " " + args[0].strip("\"") +
-                                       " " + args[1].strip("\"") + " " + args[2])
+                        self.do_update(obj_name + " " + args[0].strip("\"")
+                                       + " " + args[1].strip("\"")
+                                       + " " + args[2])
         else:
             super().default(line)
 
@@ -77,12 +78,12 @@ class HBNBCommand(cmd.Cmd):
         """EOF character to exit the program.\n"""
 
         return True
-    
+
     def do_quit(self, line):
         """Quit command to exit the program.\n"""
 
         return True
-    
+
     def emptyline(self):
         """
         Method to override the original emptyline method to avoid
@@ -113,7 +114,7 @@ class HBNBCommand(cmd.Cmd):
             print("** class name missing **")
         else:
             args = line.split(" ")
-            
+
             if args[0] not in storage.classes():
                 print("** class doesn't exist **")
             elif len(args) < 2:
@@ -136,7 +137,7 @@ class HBNBCommand(cmd.Cmd):
             print("** class name missing **")
         else:
             args = line.split(" ")
-            
+
             if args[0] not in storage.classes():
                 print("** class doesn't exist **")
             elif len(args) < 2:
@@ -179,7 +180,7 @@ class HBNBCommand(cmd.Cmd):
             print("** class name missing **")
         else:
             args = shlex.split(line, posix=False)
-            
+
             if args[0] not in storage.classes():
                 print("** class doesn't exist **")
             elif len(args) < 2:
