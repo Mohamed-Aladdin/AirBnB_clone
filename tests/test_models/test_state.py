@@ -8,6 +8,7 @@ from models.state import State
 
 import unittest
 
+
 class TestState(unittest.TestCase):
     """TestState Class"""
 
@@ -43,6 +44,7 @@ class TestState(unittest.TestCase):
         self.assertEqual(obj.created_at.isoformat(), created_at)
         self.assertEqual(obj.updated_at.isoformat(), updated_at)
         self.assertEqual(obj.name, name)
+
 
 if __name__ == "__main__":
     unittest.main()

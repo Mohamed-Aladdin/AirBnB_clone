@@ -6,6 +6,7 @@ from datetime import datetime
 from models.base_model import BaseModel
 from models.city import City
 
+
 class TestCity(unittest.TestCase):
     """TestCity Class"""
 
@@ -38,12 +39,14 @@ class TestCity(unittest.TestCase):
         updated_at = "2023-01-01T12:30:00.000002"
         state_id = "id"
         name = "name"
-        obj = City(created_at=created_at, updated_at=updated_at, state_id=state_id, name=name)
+        obj = City(created_at=created_at, updated_at=updated_at,
+                   state_id=state_id, name=name)
 
         self.assertEqual(obj.created_at.isoformat(), created_at)
         self.assertEqual(obj.updated_at.isoformat(), updated_at)
         self.assertEqual(obj.state_id, state_id)
         self.assertEqual(obj.name, name)
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -6,6 +6,7 @@ import time
 from datetime import datetime
 from models.base_model import BaseModel
 
+
 class TestBaseModel(unittest.TestCase):
     """TestBaseModel Class"""
 
@@ -57,6 +58,7 @@ class TestBaseModel(unittest.TestCase):
 
         for key in keys:
             self.assertIn(key, obj_dict)
+
 
 if __name__ == '__main__':
     unittest.main()

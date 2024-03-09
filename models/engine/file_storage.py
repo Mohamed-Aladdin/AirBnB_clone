@@ -5,6 +5,7 @@ from datetime import datetime
 import json
 import os
 
+
 class FileStorage:
     """FileStorage Class"""
 
@@ -15,7 +16,7 @@ class FileStorage:
         """Method to return the dictionary __objects"""
 
         return FileStorage.__objects
-    
+
     def new(self, obj):
         """Method to set in __objects the obj with key <obj class name>.id"""
 
@@ -23,16 +24,22 @@ class FileStorage:
         FileStorage.__objects[key] = obj
 
     def save(self):
-        """Method to serialize __objects to the JSON file (path: __file_path)"""
+        """
+        Method to serialize __objects to
+        the JSON file (path: __file_path)
+        """
 
         with open(FileStorage.__file_path, "w", encoding="utf-8") as file:
-            my_dict = {key: value.to_dict() for key, value in FileStorage.__objects.items()}
+            my_dict = {key: value.to_dict() for key,
+                       value in FileStorage.__objects.items()}
             json.dump(my_dict, file)
 
     def reload(self):
         """
-        deserializes the JSON file to __objects (only if the JSON file (__file_path) exists;
-        otherwise, do nothing. If the file doesn't exist, no exception should be raised)
+        deserializes the JSON file to __objects
+        (only if the JSON file (__file_path) exists;
+        otherwise, do nothing. If the file doesn't exist,
+        no exception should be raised)
         """
 
         if not os.path.isfile(FileStorage.__file_path):
@@ -43,7 +50,8 @@ class FileStorage:
                 my_dict = json.load(file)
             except:
                 return
-            my_dict = {key: self.classes()[value["__class__"]](**value) for key, value in my_dict.items()}
+            my_dict = {key: self.classes()[value["__class__"]](**value)
+                       for key, value in my_dict.items()}
             FileStorage.__objects = my_dict
 
     def classes(self):

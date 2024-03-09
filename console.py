@@ -8,6 +8,7 @@ import shlex
 from models.base_model import BaseModel
 from models import storage
 
+
 class HBNBCommand(cmd.Cmd):
     """HBNBCommand class that inherits from Cmd parent class"""
     
@@ -30,7 +31,8 @@ class HBNBCommand(cmd.Cmd):
         if cmnd == "all":
             self.do_all(obj_name)
         elif cmnd == "count":
-            count = sum(1 for key, value in storage.all().items() if value.to_dict()["__class__"] == obj_name)
+            count = sum(1 for key, value in storage.all().items()
+                        if value.to_dict()["__class__"] == obj_name)
             print(count)
         elif cmnd == "show":
             self.do_show(obj_name + " " + arg.strip("\""))
@@ -66,8 +68,8 @@ class HBNBCommand(cmd.Cmd):
                         print("** value missing **")
                         return
                     else:
-                        self.do_update(obj_name + " " + args[0].strip("\"") + " " +
-                                                     args[1].strip("\"") + " " + args[2])
+                        self.do_update(obj_name + " " + args[0].strip("\"") +
+                                       " " + args[1].strip("\"") + " " + args[2])
         else:
             super().default(line)
 
@@ -125,7 +127,10 @@ class HBNBCommand(cmd.Cmd):
                     print(storage.all()[key])
 
     def do_destroy(self, line):
-        """Destroy command to delete an instance based on the class name and id.\n"""
+        """
+        Destroy command to delete
+        an instance based on the class name and id.\n
+        """
 
         if line is None or line == "":
             print("** class name missing **")
@@ -157,7 +162,8 @@ class HBNBCommand(cmd.Cmd):
             if args[0] not in storage.classes():
                 print("** class doesn't exist **")
             else:
-                ins_list = [str(inst) for key, inst in storage.all().items() if type(inst).__name__ == args[0]]
+                ins_list = [str(inst) for key, inst in storage.all().items()
+                            if type(inst).__name__ == args[0]]
                 print(ins_list)
         else:
             ins_list = [str(inst) for key, inst in storage.all().items()]
@@ -192,6 +198,7 @@ class HBNBCommand(cmd.Cmd):
                         args[3] = args[3].strip("\"")
                         storage.all()[key].__dict__[args[2]] = args[3]
                         storage.save()
+
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()

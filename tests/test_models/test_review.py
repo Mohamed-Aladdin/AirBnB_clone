@@ -6,6 +6,7 @@ from datetime import datetime
 from models.base_model import BaseModel
 from models.review import Review
 
+
 class TestReview(unittest.TestCase):
     """TestReview Class"""
 
@@ -40,13 +41,15 @@ class TestReview(unittest.TestCase):
         place_id = "pid"
         user_id = "uid"
         text = "text"
-        obj = Review(created_at=created_at, updated_at=updated_at, place_id=place_id, user_id=user_id, text=text)
+        obj = Review(created_at=created_at, updated_at=updated_at,
+                     place_id=place_id, user_id=user_id, text=text)
 
         self.assertEqual(obj.created_at.isoformat(), created_at)
         self.assertEqual(obj.updated_at.isoformat(), updated_at)
         self.assertEqual(obj.place_id, place_id)
         self.assertEqual(obj.user_id, user_id)
         self.assertEqual(obj.text, text)
+
 
 if __name__ == "__main__":
     unittest.main()

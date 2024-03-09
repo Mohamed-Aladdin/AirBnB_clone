@@ -8,6 +8,7 @@ from models.amenity import Amenity
 
 import unittest
 
+
 class TestAmenity(unittest.TestCase):
     """TestAmenity Class"""
 
@@ -18,7 +19,7 @@ class TestAmenity(unittest.TestCase):
 
     def tearDown(self):
         """Method to tear down the current environment"""
-    
+
         pass
 
     def test_init(self):
@@ -43,6 +44,7 @@ class TestAmenity(unittest.TestCase):
         self.assertEqual(obj.created_at.isoformat(), created_at)
         self.assertEqual(obj.updated_at.isoformat(), updated_at)
         self.assertEqual(obj.name, name)
+
 
 if __name__ == "__main__":
     unittest.main()

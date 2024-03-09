@@ -8,6 +8,7 @@ from models.user import User
 
 import unittest
 
+
 class TestUser(unittest.TestCase):
     """TestUser Class"""
 
@@ -44,7 +45,8 @@ class TestUser(unittest.TestCase):
         password = "password"
         first_name = "first name"
         last_name = "last name"
-        obj = User(created_at=created_at, updated_at=updated_at, email=email, password=password, first_name=first_name, last_name=last_name)
+        obj = User(created_at=created_at, updated_at=updated_at, email=email,
+                   password=password, first_name=first_name, last_name=last_name)
 
         self.assertEqual(obj.created_at.isoformat(), created_at)
         self.assertEqual(obj.updated_at.isoformat(), updated_at)
@@ -52,6 +54,7 @@ class TestUser(unittest.TestCase):
         self.assertEqual(obj.password, password)
         self.assertEqual(obj.first_name, first_name)
         self.assertEqual(obj.last_name, last_name)
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -6,6 +6,7 @@ import os
 from models.engine.file_storage import FileStorage
 from models.base_model import BaseModel
 
+
 class TestFileStorage(unittest.TestCase):
     """TestFileStorage Class"""
 
@@ -83,7 +84,8 @@ class TestFileStorage(unittest.TestCase):
         """Method to test reloading invalid json data from the file"""
 
         self.reset_storage()
-        with open(FileStorage._FileStorage__file_path, "w", encoding="utf-8") as file:
+        with open(FileStorage._FileStorage__file_path,
+                  "w", encoding="utf-8") as file:
             file.write("Invalid JSON Data")
         self.storage.reload()
         objs = self.storage.all()
@@ -101,6 +103,7 @@ class TestFileStorage(unittest.TestCase):
         self.assertIn("Place", classes)
         self.assertIn("Review", classes)
         self.assertIn("User", classes)
+
 
 if __name__ == '__main__':
     unittest.main()

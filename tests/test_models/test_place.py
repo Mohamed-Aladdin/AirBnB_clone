@@ -6,6 +6,7 @@ from datetime import datetime
 from models.base_model import BaseModel
 from models.place import Place
 
+
 class TestPlace(unittest.TestCase):
     """TestPlace Class"""
 
@@ -84,6 +85,7 @@ class TestPlace(unittest.TestCase):
         self.assertEqual(place.latitude, latitude)
         self.assertEqual(place.longitude, longitude)
         self.assertEqual(place.amenity_ids, amenity_ids)
+
 
 if __name__ == "__main__":
     unittest.main()
