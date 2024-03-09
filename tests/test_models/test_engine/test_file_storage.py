@@ -19,6 +19,14 @@ class TestFileStorage(unittest.TestCase):
   def tearDown(self):
     """Method to tear down the current environment"""
     
+    self.reset_storage()
+    pass
+
+  def reset_storage(self):
+    """Method to reset the storage's state back to empty"""
+
+    FileStorage._FileStorage__objects = {}
+
     if os.path.exists(FileStorage._FileStorage__file_path):
       os.remove(FileStorage._FileStorage__file_path)
 
@@ -40,6 +48,7 @@ class TestFileStorage(unittest.TestCase):
   def test_save_reload(self):
     """Method to test both save() and reload() functionality"""
 
+    self.reset_storage()
     obj = BaseModel()
     self.storage.new(obj)
     self.storage.save()
@@ -56,6 +65,7 @@ class TestFileStorage(unittest.TestCase):
   def test_save_file(self):
     """Method to test saving when the json file doesn't exist"""
 
+    self.reset_storage()
     obj = BaseModel()
     self.storage.new(obj)
     self.storage.save()
@@ -64,6 +74,7 @@ class TestFileStorage(unittest.TestCase):
   def test_reload_file(self):
     """Method to test reloading when the json file doesn't exist"""
 
+    self.reset_storage()
     self.storage.reload()
     objs = self.storage.all()
     self.assertEqual(len(objs), 0)
@@ -71,6 +82,7 @@ class TestFileStorage(unittest.TestCase):
   def test_reload_invalid_json(self):
     """Method to test reloading invalid json data from the file"""
 
+    self.reset_storage()
     with open(FileStorage._FileStorage__file_path, "w", encoding="utf-8") as file:
       file.write("Invalid JSON Data")
     self.storage.reload()
