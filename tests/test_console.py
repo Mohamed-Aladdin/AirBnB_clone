@@ -3,6 +3,7 @@
 
 import unittest
 
+
 class TestConsole(unittest.TestCase):
     """TestConsole Class"""
 
@@ -13,8 +14,9 @@ class TestConsole(unittest.TestCase):
 
     def tearDown(self):
         """Method to tear down the current environment"""
-        
+
         pass
+
 
 if __name__ == '__main__':
     unittest.main()
