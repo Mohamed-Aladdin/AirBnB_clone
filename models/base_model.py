@@ -31,8 +31,9 @@ class BaseModel:
     def __str__(self):
         """Method to return the string representation of BaseModel class"""
 
-        return "[{}] ({}) {}".format(type(self).__name__, self.id, self.__dict__)
-    
+        return "[{}] ({}) {}".format(type(self).__name__,
+                                     self.id, self.__dict__)
+
     def save(self):
         """
         Method to update the public instance attribute

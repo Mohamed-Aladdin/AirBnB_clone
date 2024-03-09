@@ -44,7 +44,7 @@ class FileStorage:
 
         if not os.path.isfile(FileStorage.__file_path):
             return
-        
+
         with open(FileStorage.__file_path, "r", encoding="utf-8") as file:
             try:
                 my_dict = json.load(file)
