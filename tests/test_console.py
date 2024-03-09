@@ -49,7 +49,7 @@ class TestHBNBCommand(unittest.TestCase):
         with patch("sys.stdout", new=StringIO()) as mock_stdout:
             self.command.onecmd("show BaseModel {}".format(obj.id))
             self.assertTrue(mock_stdout.getvalue().strip() != "")
-            self.assertEqual(mock_stdout.getvalue().strip() == str(obj))
+            self.assertEqual(mock_stdout.getvalue().strip(), str(obj))
 
     def test_destroy(self):
         """Method to test do_destroy functionality"""
