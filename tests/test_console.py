@@ -75,7 +75,7 @@ class TestHBNBCommand(unittest.TestCase):
         key = "{}.{}".format(type(obj).__name__, obj.id)
 
         with patch("sys.stdout", new=StringIO()) as mock_stdout:
-            self.command.onecmd("update BaseModel {} name 'test'".format(obj.id))
+            self.command.onecmd("update BaseModel {} name test".format(obj.id))
             self.assertEqual(obj.name, "test")
 
     def test_count(self):
