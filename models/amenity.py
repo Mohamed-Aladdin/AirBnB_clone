@@ -4,6 +4,6 @@
 from models.base_model import BaseModel
 
 class Amenity(BaseModel):
-  """Amenity class that inherits from BaseModel parent class"""
+    """Amenity class that inherits from BaseModel parent class"""
 
-  name = ""
+    name = ""
