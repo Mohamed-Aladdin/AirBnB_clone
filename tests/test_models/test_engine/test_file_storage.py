@@ -19,7 +19,7 @@ class TestFileStorage(unittest.TestCase):
 
     def tearDown(self):
         """Method to tear down the current environment"""
-        
+
         self.reset_storage()
         pass
 

@@ -17,9 +17,9 @@ class TestBaseModel(unittest.TestCase):
 
     def tearDown(self):
         """Method to tear down the current environment"""
-        
+
         pass
-    
+
     def test_init(self):
         """Method to test no kwargs init of the class"""
 

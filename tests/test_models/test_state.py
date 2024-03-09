@@ -19,7 +19,7 @@ class TestState(unittest.TestCase):
 
     def tearDown(self):
         """Method to tear down the current environment"""
-        
+
         pass
 
     def test_init(self):

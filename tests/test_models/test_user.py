@@ -19,7 +19,7 @@ class TestUser(unittest.TestCase):
 
     def tearDown(self):
         """Method to tear down the current environment"""
-        
+
         pass
 
     def test_init(self):
@@ -46,7 +46,8 @@ class TestUser(unittest.TestCase):
         first_name = "first name"
         last_name = "last name"
         obj = User(created_at=created_at, updated_at=updated_at, email=email,
-                   password=password, first_name=first_name, last_name=last_name)
+                   password=password, first_name=first_name,
+                   last_name=last_name)
 
         self.assertEqual(obj.created_at.isoformat(), created_at)
         self.assertEqual(obj.updated_at.isoformat(), updated_at)
